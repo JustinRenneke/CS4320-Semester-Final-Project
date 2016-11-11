@@ -1,4 +1,4 @@
-<?php 
+<?php
 #Start Session
 session_start();
 #Database Connection:
@@ -20,10 +20,11 @@ if($_POST) {
 				$_SESSION['category'] = 'other';
 				header('Location: index.php');
 			}
-		}		
+		}
 	}
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -31,54 +32,120 @@ if($_POST) {
 		<title>Login</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<?php include('config/css.php'); ?>
-		<?php include('config/js.php'); ?>		
-	</head>
-	<body>
-		<div id="wapper">
-			
-		<?php //include(D_TEMPLATE.'/navigation.php'); ?>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 col-md-offset-4">
-					<div class="panel panel-info">
-						<div class="panel-heading">
-							<h1>Login</h1>
-						</div>
-						<div class="panel-body">
-							<?php
-								if($_POST) {
-									echo $_POST['email'];
-									echo '<br>';
-									echo $_POST['password'];
-								}
-							?>
-							<form action="login.php" method="post" role="form">
-								<div class="form-group">
-									<label for="Email">Email address</label>
-									<input type="email" class="form-control" id="Email1" name="email" placeholder="Email">
-								</div>
-								<div class="form-group">
-									<label for="Password">Password</label>
-									<input type="password" class="form-control" id="Password" name="password" placeholder="Password">
-								</div>
-								<!--
-								<div class="checkbox">
-									<label>
-									<	input type="checkbox"> Check me out
-									</label>
-								</div>-->
-								<button type="submit" class="btn btn-default">Submit</button>
-							</form>
-						</div><!--END panel body-->
-					</div> <!--END panel-->
-				</div><!--END col-->
-			</div><!--END row-->
-			
+		<?php include('config/js.php'); ?>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Software Engineering</title>
 
-	
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<!--
+<style>
+
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #F0F000;
+   }
+   /* label underline focus color */
+   .input-field input[type=search]:focus {
+     border-bottom: 1px solid #F00FFF;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #00F0F0;
+   }
+	</style>
+ -->
+
+<body class='indigo lighten-5'>
+  <nav class="indigo" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Software Engineering</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Git Hub</a></li>
+				<li><a href="browseManifests.php">Browse Manifests</a></li>
+				<li><a href="addDataset.php">addDataset</a></li>
+				<li><a href="contribute.php">contribute</a></li>
+<!--         <li><input id="search"><i class="material-icons">search</i></li> -->
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section" id="index-banner">
+    <div class="white z-depth-1 container" style='padding: 1% 1% 1% 1%;'>
+      <br><br>
+      <div class="row">
+      <?php
+					if($_POST) {
+						echo $_POST['email'];
+						echo '<br>';
+						echo $_POST['password'];
+					}
+			?>
+      		<div class="col s4">
+      			<h3>User Login</h3>
+      		</div>
+		  <div class="input-field col s12">
+			  <input id="email" type="text" class="validate">
+			  <label for="email" name="email">Username</label>
+          </div>
+          <div class="input-field col s12">
+          		<input id="password" type="text" class="validate">
+			  <label for="password" type="password" name="password">Password</label>
 		</div>
-	
-		<?php //include(D_TEMPLATE.'/footer.php'); ?>
+		<div class="col s4">
+			<a class="waves-effect waves-light btn">Login</a>
+			<a class="waves-effect waves-light btn">Register</a>
 		</div>
-	</body>
+    </div>
+      <div class="row center">
+      </div>
+      <br><br>
+    </div>
+  </div>
+
+  <footer class="page-footer indigo">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
 </html>
