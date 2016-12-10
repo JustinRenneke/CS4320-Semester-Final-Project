@@ -47,20 +47,29 @@
 		        <div class="col s4">
                <input name="searchOptions" type="radio" id="1" value='name' checked/>
                <label for="1">Upload Name</label>
+			</div>
+			<div class="col s4">
                <input name="searchOptions" type="radio" id="2" value='date'/>
                <label for="2">Date Added</label>
+			</div>
+                        <div class="col s4">
                <input name="searchOptions" type="radio" id="3" value = 'last name'/>
                <label for="3">Last Name</label>
             </div>
         </form>
+</div>
+	<div class='row'>
+		<div class='col s12'>
 			  <table class="highlight">
         <thead>
           <tr>
               <th style='width:55%' data-field="data">Data</th>
               <th style="width:10%" data-field="name">Uploader</th>
               <th style='width:10%' data-field="date">Date/Time</th>
-              <th style='width:15%' data-field="contrib"></th>
-              <th style="width:10%" data-field="download"></th>
+              <th style='width:5%' data-field="dataSets"></th>
+		<th style='width:5%' data-field="sncs"></th>
+              <th style='width:5%' data-field="edit"></th>
+              <th style="width:5%" data-field="download"></th>
           </tr>
         </thead>
 
@@ -90,8 +99,9 @@
                   <td><?php echo "Uploader name here"; ?></td>
                   <td><?php echo "$date"; ?></td>
                   <td><a class='waves-effect waves-light btn' href="contribute.php?mid=<?php echo "$mid" ?>">Datasets</a></td>
-                  <td><a class='waves-effect waves-light btn' href="editManifest.php?mid=<?php echo "$mid" ?>">Edit</a></td>
-                  <td><a class='waves-effect waves-light btn' href='<?php echo "../ManifestFiles/$mid.json"?>' download>Download</a></td>
+                    <td><a class='waves-effect waves-light btn' href="snc.php?mid=<?php echo "$mid" ?>">SNCs</a></td>
+                  <td><a class='waves-effect waves-light btn' href="editManifest.php?mid=<?php echo "$mid" ?>"><i class="material-icons">edit</i></a></td>
+                  <td><a class='waves-effect waves-light btn' href='<?php echo "../ManifestFiles/$mid.json"?>' download><i class="material-icons">play_for_work</i></a></td>
                 </tr>
           <?php
               }
@@ -101,6 +111,8 @@
           ?>
         </tbody>
         </table>
+	</div>
+	</div>
       </div>
     </div>
   </div>
@@ -109,7 +121,7 @@
   <br><br>
 
   <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large yellow accent-4" href="addDataset.php">
+    <a class="btn-floating btn-large yellow accent-4" href="createManifest.php">
       <i class="large material-icons">add</i>
     </a>
   </div>
