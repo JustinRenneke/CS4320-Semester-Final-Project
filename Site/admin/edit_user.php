@@ -37,25 +37,24 @@ if(!isset($_SESSION['username']) or $_SESSION['category'] != 'admin') {
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>User Management | User Editing</title>
+		<title>User Management .' | '.$site_title; ?></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<?php include('config/css.php'); ?>
 		<?php include('config/js.php'); ?>				
 	</head>
 	<body class='indigo lighten-5'>
-		<div class="container">			
-			<div class="wrap">
+		<?php include(D_TEMPLATE.'/navigation.php'); ?>	
+		<div class="section" id="index-banner">
+		<div class="white z-depth-1 container" style='padding: 1% 1% 1% 1%;'>			
 				<div class="row">
-					<div class="col-md-4">
-						<div class="panel panel-info">
-							<div class="panel-heading">
-								<h5>Edit User</h5>
+					<div class="col s12">
+								<h3>Create New User</h3>
 							</div>
 							<div class="panel-body">
 								<form action="edit_user.php" method="post" role="form">
 									<div class="form-group">
 										<label for="UserName">UserName</label>
-										<input type="username" class="form-control" id="username" name="username" <?php echo 'value="'.$data['UserName'].'"'?>>
+										<input type="text" class="form-control" id="username" name="username" <?php echo 'value="'.$data['UserName'].'"'?>>
 									</div>
 									<div class="form-group">
 										<label for="Email">Email address</label>
@@ -70,8 +69,11 @@ if(!isset($_SESSION['username']) or $_SESSION['category'] != 'admin') {
 										<select class="form-control" id="Category" name="category" <?php echo 'value="'.$data['Category'].'"'?>>
 											<option>admin</option>
 											<option>other</option>
+											<option>3</option>
+											<option>4</option>
 										</select>
-									</div>								
+									</div>					
+			
 									<div class="form-group">
 										<label for="isActive">isActive</label>
 										<select class="form-control" id="isActive" name="isactive">
@@ -79,7 +81,7 @@ if(!isset($_SESSION['username']) or $_SESSION['category'] != 'admin') {
 											<option>No</option>
 										</select>
 									</div>
-									<button type="update" class="btn btn-default">Update</button>
+									<button type="update" class="waves-effect waves-light btn">Update</button>
 									<input type="hidden" name="updated" value="1">
 									<input type="hidden" name="id" value="<?php echo $id ?>">
 								</form>
