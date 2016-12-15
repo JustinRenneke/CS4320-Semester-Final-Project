@@ -41,7 +41,7 @@
           <div class='row'>
             <div class="input-field col s12">
 			        <input class=" validate col s11" name="search" type="text">
-              <label for="search">Search</label>
+              <label for="search">Search Manifests</label>
 		          <button class=" waves-effect waves-light btn col s1" type="submit"><i class="material-icons">search</i></button>
             </div>
 		        <div class="col s4">
