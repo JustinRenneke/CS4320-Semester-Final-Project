@@ -82,7 +82,7 @@
               } else if($radio =='date') {
                 $stmt = "SELECT MID, UploadTitle, UploadDate, UploadComment, JsonFile FROM manifest WHERE UploadDate LIKE ?";
               } else if($radio =='last name') {
-                $stmt = "SELECT MID, UploadTitle, UploadDate, UploadComment, JsonFile FROM manifest WHERE /*Need  stmt for crossreference to person*/";
+                $stmt = "SELECT MID, UploadTitle, UploadDate, UploadComment, JsonFile FROM manifest INNER JOIN person ON manifest.Creator = person.PID WHERE person.LastName LIKE ?";
               }
               $search = "%{$_POST['search']}%";
               if($query = $dbc->prepare($stmt)) {
