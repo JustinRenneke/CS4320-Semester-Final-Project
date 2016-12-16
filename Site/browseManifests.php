@@ -96,7 +96,7 @@
                   <td style='margin-left:2px'><b><?php echo "$title"; ?></b>
                     <p><?php echo "$comment"; ?></p>
                   </td>
-                  <td><?php echo "$firstName, $lastName"; ?></td>
+                  <td><?php echo "$firstName $lastName"; ?></td>
                   <td><?php echo "$date"; ?></td>
                   <td><a class='waves-effect waves-light btn' href="contribute.php?mid=<?php echo "$mid" ?>">Datasets</a></td>
                     <td><a class='waves-effect waves-light btn' href="snc.php?mid=<?php echo "$mid" ?>">SNCs</a></td>
