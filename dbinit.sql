@@ -27,11 +27,14 @@ CREATE TABLE person (
 );
 
 CREATE TABLE user_info (
+    user_id int NOT NULL AUTO_INCREMENT,
     UserName varchar(255) NOT NULL,
     PID int,
     AccountEmail varchar(255),
     Hashword varchar(255),
-    PRIMARY KEY (UserName),
+    isActive int DEAFULT 1,
+    Category varchar(45) DEFAULT 'other',
+    PRIMARY KEY (user_id),
     FOREIGN KEY (PID) REFERENCES person(PID)
 );
 
