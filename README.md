@@ -8,3 +8,6 @@ http://ec2-54-148-51-183.us-west-2.compute.amazonaws.com/CS4320-Semester-Final-P
 
 If you wish to deploy your own version of this web system, you can do so from the [system image](). There you will find an image of the system that can be used to set up your own system. 
 
+## User Documentation
+
+User Documentation can be found [here](https://github.com/JustinRenneke/CS4320-Semester-Final-Project/blob/master/UserDocumentationFinalDraft.pdf)
