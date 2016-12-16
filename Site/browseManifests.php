@@ -78,17 +78,17 @@
             if(isset($_POST['search'])) {
               $radio = $_POST['searchOptions'];
               if($radio == 'name') {
-                $stmt = "SELECT MID, UploadTitle, UploadDate, UploadComment, JsonFile From manifest WHERE UploadTitle LIKE ?";
+                $stmt = "SELECT MID, UploadTitle, UploadDate, UploadComment, JsonFile, FirstName, LastName FROM manifest INNER JOIN person ON manifest.Creator = person.PID WHERE UploadTitle LIKE ?";
               } else if($radio =='date') {
-                $stmt = "SELECT MID, UploadTitle, UploadDate, UploadComment, JsonFile FROM manifest WHERE UploadDate LIKE ?";
+                $stmt = "SELECT MID, UploadTitle, UploadDate, UploadComment, JsonFile, FirstName, LastName FROM manifest INNER JOIN person ON manifest.Creator = person.PID WHERE UploadDate LIKE ?";
               } else if($radio =='last name') {
-                $stmt = "SELECT MID, UploadTitle, UploadDate, UploadComment, JsonFile FROM manifest INNER JOIN person ON manifest.Creator = person.PID WHERE person.LastName LIKE ?";
+                $stmt = "SELECT MID, UploadTitle, UploadDate, UploadComment, JsonFile, FirstName, LastName FROM manifest INNER JOIN person ON manifest.Creator = person.PID WHERE person.LastName LIKE ?";
               }
               $search = "%{$_POST['search']}%";
               if($query = $dbc->prepare($stmt)) {
                 $query->bind_param("s", $search) or die("Couldnt bind parameters");
                 $query->execute() or die("coundnt execute");
-                $query->bind_result($mid, $title, $date, $comment, $JsonFile) or die("Couldnt bind results");
+                $query->bind_result($mid, $title, $date, $comment, $JsonFile, $firstName, $lastName) or die("Couldnt bind results");
               }
               while ($query->fetch()) {
           ?>
@@ -96,7 +96,7 @@
                   <td style='margin-left:2px'><b><?php echo "$title"; ?></b>
                     <p><?php echo "$comment"; ?></p>
                   </td>
-                  <td><?php echo "Uploader name here"; ?></td>
+                  <td><?php echo "$firstName, $lastName"; ?></td>
                   <td><?php echo "$date"; ?></td>
                   <td><a class='waves-effect waves-light btn' href="contribute.php?mid=<?php echo "$mid" ?>">Datasets</a></td>
                     <td><a class='waves-effect waves-light btn' href="snc.php?mid=<?php echo "$mid" ?>">SNCs</a></td>
