@@ -64,24 +64,30 @@ $result = mysqli_query($dbc, $query);
 		<?php include('config/js.php'); ?>
 				
 	</head>
-	<body>
-		<div id="wrap">
+	<body class='indigo lighten-5'>
 		<?php include(D_TEMPLATE.'/navigation.php'); ?>
-		<div class="container">
-			<h1>All users:</h1>
+		<div class="section" id="index-banner">
+    			<div class="white z-depth-1 container" style='padding: 1% 1% 1% 1%;'>
+		<div class='row'>
 			<form action="user.php" method="post">
-				<input type="text" name="ValueToSearch" placeholder="Value To Search"><br><br>
-				<input type="submit" name="search" value="Filter"><br><br>
-				<table class="table able-bordered" >
-					<tr>
-						<th><a href="user.php?sort=userid">user_id</a></th>
-						<th><a href="user.php?sort=username">UserName</a>></th>
+				<div class="input-field col s12">
+					<input class="validate col s11" type="text" name="ValueToSearch">
+					<label for="search">Search Users</label>
+					<button class=" waves-effect waves-light btn col s1" name="search" type="submit"><i class="material-icons">search</i></button>
+				</div>
+				<!--<input type="submit" name="search" value="Filter"><br><br>-->
+				<div class='row'>
+					<div class='col s12'>
+				<table class="highlight" >
+					<thead>
+						<th><a href="user.php?sort=userid">User ID</a></th>
+						<th><a href="user.php?sort=username">Username</a></th>
 						<th><a href="user.php?sort=pid">PID</a></th>
-						<th><a href="user.php?sort=accountemail">AccountEmail</a>></th>
-						<th>Hashword</th>
-						<th><a href="user.php?sort=isactive">isActive</a></th>
-						<th><a href="user.php?sort=category">Category</a>></th>
-					</tr>
+						<th><a href="user.php?sort=accountemail">Email</a></th>
+						<!--<th>Hashword</th>-->
+						<th><a href="user.php?sort=isactive">Active</a></th>
+						<th><a href="user.php?sort=category">Category</a></th>
+					</thead>
 						<?php
 						while($table_user = mysqli_fetch_assoc($result)) {
 							?>
@@ -90,7 +96,7 @@ $result = mysqli_query($dbc, $query);
 								<td><?php echo $table_user['UserName']; ?></td>
 								<td><?php echo $table_user['PID']; ?></td>
 								<td><?php echo $table_user['AccountEmail']; ?></td>
-								<td><?php echo $table_user['Hashword']; ?></td>
+								<!--<td><?//php echo $table_user['Hashword']; ?></td>-->
 								<td><?php echo $table_user['isActive']; ?></td>
 								<td><?php echo $table_user['Category']; ?></td>
 								<td><?php echo '<a href="edit_user.php?id='.$table_user['user_id'].'">Edit</a>' ?></td>
@@ -100,7 +106,15 @@ $result = mysqli_query($dbc, $query);
 							<?php
 						}				
 					?>				
-				</table>	
+				</table>
+				</div>
+				</div>
+
+				<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large yellow accent-4" href="../createUser.php">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>	
 				
 			</form>			
 			<!--<div class="row">
